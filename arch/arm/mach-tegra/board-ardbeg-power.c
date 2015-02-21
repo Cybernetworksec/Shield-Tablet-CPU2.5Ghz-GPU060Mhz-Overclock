@@ -1002,7 +1002,7 @@ static struct tegra_cl_dvfs_cfg_param e1733_ardbeg_cl_dvfs_param = {
 };
 
 /* E1733 volatge map. Fixed 10mv steps from 700mv to 1400mv */
-#define E1733_CPU_VDD_MAP_SIZE ((1400000 - 700000) / 10000 + 1)
+#define E1733_CPU_VDD_MAP_SIZE ((1450000 - 700000) / 10000 + 1)
 static struct voltage_reg_map e1733_cpu_vdd_map[E1733_CPU_VDD_MAP_SIZE];
 static inline void e1733_fill_reg_map(void)
 {

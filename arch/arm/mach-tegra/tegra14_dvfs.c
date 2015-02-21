@@ -103,7 +103,7 @@ static struct cpu_cvb_dvfs cpu_cvb_dvfs_table[] = {
 			.tune_high_margin_mv = 40,
 			.min_millivolts = 800,
 		},
-		.max_mv = 1230,
+		.max_mv = 1350,
 		.freqs_mult = KHZ,
 		.speedo_scale = 100,
 		.voltage_scale = 1000,
@@ -140,7 +140,7 @@ static struct cpu_cvb_dvfs cpu_cvb_dvfs_table[] = {
 			.tune_high_margin_mv = 40,
 			.min_millivolts = 800,
 		},
-		.max_mv = 1230,
+		.max_mv = 1350,
 		.freqs_mult = KHZ,
 		.speedo_scale = 100,
 		.voltage_scale = 1000,
@@ -164,6 +164,7 @@ static struct cpu_cvb_dvfs cpu_cvb_dvfs_table[] = {
 			{1938000, { 2980727,  -138712,   2434}, { 1178803,    0,    0} },
 			{2014500, { 3030673,  -139702,   2434}, { 1207951,    0,    0} },
 			{2116500, { 3099135,  -141042,   2434}, { 1248368,    0,    0} },
+			{2500000, { 3167597,  -142382,   2434}, { 1288785,    0,    0} },
 			{      0, {      0,      0,   0}, {      0,    0,    0} },
 		},
 		.vmin_trips_table = { 20 },
@@ -184,7 +185,7 @@ static struct dvfs cpu_dvfs = {
 
 /* Core DVFS tables */
 static const int core_millivolts[MAX_DVFS_FREQS] = {
-	800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1230};
+	800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1350};
 
 #define CORE_DVFS(_clk_name, _speedo_id, _process_id, _auto, _mult, _freqs...)	\
 	{							\
@@ -213,7 +214,7 @@ static const int core_millivolts[MAX_DVFS_FREQS] = {
 
 
 static struct dvfs core_dvfs_table[] = {
-	/* Core voltages (mV):		             800,    850,    900,    950,   1000,   1050,   1100,   1150,   1200,   1230 */
+	/* Core voltages (mV):		             800,    850,    900,    950,   1000,   1050,   1100,   1150,   1200,   1300 */
 	CORE_DVFS("cpu_lp",   0,  0, 1, KHZ,      249600, 364800, 460800, 556800, 633600, 691200, 729600, 768000, 768000, 768000),
 	CORE_DVFS("cpu_lp",   0,  1, 1, KHZ,      307200, 393600, 489600, 556800, 652800, 729600, 768000, 768000, 768000, 768000),
 	CORE_DVFS("cpu_lp",   1,  1, 1, KHZ,      307200, 393600, 489600, 556800, 652800, 729600, 768000, 806400, 806400, 806400),
@@ -288,7 +289,7 @@ static struct dvfs core_dvfs_table[] = {
 	CORE_DVFS("pll_c2",  1,  1, 1, KHZ,       533000, 667000, 933000,1066000,1066000,1066000,1066000,1066000,1066000,1066000),
 	CORE_DVFS("pll_c3",  1,  1, 1, KHZ,       533000, 667000, 933000,1066000,1066000,1066000,1066000,1066000,1066000,1066000),
 
-	/* Core voltages (mV):» »                    800,    850,    900,    950,   1000,   1050,   1100,   1150,   1200,   1230 */
+	/* Core voltages (mV):» »                    800,    850,    900,    950,   1000,   1050,   1100,   1150,   1200,   1300 */
 	/* Clock limits for IO Peripherals */
 	CORE_DVFS("sbc1",   -1, -1, 1, KHZ,        33000,  33000,  33000,  30000,  30000,  50000,  50000,  50000,  50000,  50000),
 	CORE_DVFS("sbc2",   -1, -1, 1, KHZ,        33000,  33000,  33000,  30000,  30000,  50000,  50000,  50000,  50000,  50000),
